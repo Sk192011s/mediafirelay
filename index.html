@@ -16,14 +16,14 @@
       background: #121212; 
       color: #fff;
       margin:0; padding:0; 
-      -webkit-user-select: none; /* Chrome, Safari */
-      -moz-user-select: none;    /* Firefox */
-      -ms-user-select: none;     /* IE/Edge */
-      user-select: none;         /* Standard */
+      -webkit-user-select: none; 
+      -moz-user-select: none;    
+      -ms-user-select: none;     
+      user-select: none;         
     }
 
     img {
-      pointer-events: none; /* Prevent image dragging or saving */
+      pointer-events: none; 
     }
 
     .navbar { 
@@ -31,7 +31,6 @@
       background: rgba(20,20,20,0.95) !important;
     }
 
-    /* Hero Section */
     .hero { 
       background: rgba(30,30,30,0.9); 
       padding: 60px 15px; 
@@ -47,11 +46,9 @@
     .hero img { margin: 20px 0; border-radius: 12px; max-width:200px; width:50%; }
     .hero .btn-download { font-size:1.2rem; font-weight:bold; border-radius:12px; padding:12px 20px; margin-top:15px; background:#1e88e5; color:#fff; border:none; }
 
-    /* Promo Section */
     .promo { text-align:center; margin: 30px 0; }
     .promo img { width:100%; max-width:600px; border-radius:12px; box-shadow:0 6px 18px rgba(0,0,0,0.7); }
 
-    /* VIP Cards */
     .vip-card{
       border-radius:12px;
       box-shadow:0 6px 18px rgba(0,0,0,0.5);
@@ -81,7 +78,6 @@
       box-shadow: 0 2px 6px rgba(0,0,0,0.4);
     }
 
-    /* VIP Description */
     #vip .text-muted {
       color: #fff !important;
       opacity: 0;
@@ -93,7 +89,6 @@
       transform: translateY(0);
     }
 
-    /* Buy Modal Animation */
     .modal.fade .modal-dialog {
       transform: scale(0.8);
       transition: all 0.3s ease-in-out;
@@ -104,10 +99,8 @@
       opacity: 1;
     }
 
-    /* Footer */
     footer { text-align:center; padding:20px 0; background:#1b1b1b; color:#fff; font-size:0.9rem; }
 
-    /* Contact Icons */
     .contact-icon {
       display:inline-flex;
       align-items:center;
@@ -119,7 +112,6 @@
     }
     .contact-icon:hover { transform: translateY(-2px); }
 
-    /* Mobile Adjustments */
     @media(max-width:576px){
       .hero h1 { font-size:2rem; }
       .hero h4 { font-size:1.2rem; }
@@ -133,7 +125,6 @@
 
 <body>
 
-<!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark">
   <div class="container">
     <a class="navbar-brand me-2" href="#"><img width="40" height="40" src="https://i2.qyimage.store:2999/i/9ab0ddbbe466436c" alt="Logo"></a>
@@ -152,7 +143,6 @@
   </div>
 </nav>
 
-<!-- Hero / Download Section -->
 <section class="hero">
   <div class="container">
     <h1>LuGyi Application</h1>
@@ -166,14 +156,12 @@ version : 1.6 </pre>
   </div>
 </section>
 
-<!-- Promo Image Section -->
 <section class="promo">
   <div class="container text-center">
     <img src="https://thumbsnap.com/i/oy8gLbKk.jpg?1110" alt="Movie Preview">
   </div>
 </section>
 
-<!-- VIP Section -->
 <section id="vip" class="py-5">
   <div class="container">
     <div class="text-center mb-5">
@@ -183,7 +171,6 @@ version : 1.6 </pre>
     </div>
 
     <div class="row vip-grid gx-3 gy-4 justify-content-center">
-      <!-- VIP cards -->
       <div class="col-6 col-sm-4 col-md-3">
         <div class="vip-card text-center">
           <div class="duration">1 month</div>
@@ -235,7 +222,6 @@ version : 1.6 </pre>
   </div>
 </section>
 
-<!-- Payment Accounts Section -->
 <section class="py-5" id="payment">
   <div class="container text-center">
     <h2 style="font-family: 'Black Ops One', system-ui;">Payment Accounts</h2>
@@ -244,28 +230,27 @@ version : 1.6 </pre>
     <div class="row justify-content-center gx-4 gy-4 mt-4">
       <!-- KPay -->
       <div class="col-12 col-md-4">
-        <div class="vip-card text-center" style="background: rgba(30,30,60,0.9);">
-          <img src="https://i2.qyimage.store:2999/i/2e0ca3029baf42b1" alt="KPay" style="max-width:120px; border-radius:12px;">
-          <h5 class="mt-3">KPay</h5>
-          <p>Name: Thein Naing Win</p>
-          <p>Phone: <span id="kpayNumber" style="cursor:text;">09961650283</span> <button class="btn btn-sm btn-light ms-2" onclick="copyText('kpayNumber')">Copy</button></p>
+        <div class="vip-card text-center" style="background: rgba(30,30,60,0.9); padding:12px;">
+          <img src="https://i2.qyimage.store:2999/i/2e0ca3029baf42b1" alt="KPay" style="max-width:100px; border-radius:12px;">
+          <h5 class="mt-2">KPay</h5>
+          <p style="margin:3px 0;">Name: Thein Naing Win</p>
+          <p style="margin:3px 0;">Phone: <span id="kpayNumber" style="cursor:text;">09961650283</span> <button class="btn btn-sm btn-light ms-2" onclick="copyText('kpayNumber')">Copy</button></p>
         </div>
       </div>
 
       <!-- Wave Pay -->
       <div class="col-12 col-md-4">
-        <div class="vip-card text-center" style="background: rgba(60,30,30,0.9);">
-          <img src="https://thumbsnap.com/i/bFfYAGCv.png?1110" alt="WavePay" style="max-width:120px; border-radius:12px;">
-          <h5 class="mt-3">Wave Pay</h5>
-          <p>Name: Thein Naing Win</p>
-          <p>Phone: <span id="waveNumber" style="cursor:text;">09688171999</span> <button class="btn btn-sm btn-light ms-2" onclick="copyText('waveNumber')">Copy</button></p>
+        <div class="vip-card text-center" style="background: rgba(60,30,30,0.9); padding:12px;">
+          <img src="https://i2.qyimage.store:2999/i/c139deae73934177" alt="WavePay" style="max-width:100px; border-radius:12px;">
+          <h5 class="mt-2">Wave Pay</h5>
+          <p style="margin:3px 0;">Name: Thein Naing Win</p>
+          <p style="margin:3px 0;">Phone: <span id="waveNumber" style="cursor:text;">09688171999</span> <button class="btn btn-sm btn-light ms-2" onclick="copyText('waveNumber')">Copy</button></p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Buy Modal -->
 <div class="modal fade" id="buyModal" tabindex="-1">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
@@ -286,7 +271,6 @@ version : 1.6 </pre>
   </div>
 </div>
 
-<!-- Footer -->
 <footer>
   © 2025 LuGyi App. All Rights Reserved.
 </footer>
@@ -311,7 +295,7 @@ version : 1.6 </pre>
       new mdb.Modal(document.getElementById('buyModal')).show();
     });
   });
-// VIP fade-in animation
+
   const vipSection = document.getElementById('vip');
   window.addEventListener('scroll', () => {
     const rect = vipSection.getBoundingClientRect();
@@ -320,7 +304,13 @@ version : 1.6 </pre>
     }
   });
 
-  // Copy phone number function
+  function copyText(id) {
+    const text = document.getElementById(id).innerText;
+    navigator.clipboard.writeText(text).then(() => {
+      alert('Copied: ' + text);
+    }).catch(err => {
+      alert
+<script>
   function copyText(id) {
     const text = document.getElementById(id).innerText;
     navigator.clipboard.writeText(text).then(() => {
