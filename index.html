@@ -147,7 +147,7 @@ version : 8.6 </pre>
     <h2 style="font-family: 'Black Ops One', system-ui;">🎡 Lucky Spin</h2>
     <p>Spin 3 times per day — win VIP Key!</p>
 
-    <canvas id="wheelCanvas" width="280" height="280" style="border-radius:50%;"></canvas>
+    <canvas id="wheelCanvas" width="300" height="300" style="border-radius:50%;"></canvas>
     <div class="mt-3">
       <button id="spinBtn" class="btn btn-warning">SPIN NOW</button>
     </div>
@@ -155,9 +155,50 @@ version : 8.6 </pre>
   </div>
 </section>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.umd.min.js"></script>
+<!-- VIP Buy Modal -->
+<div class="modal fade" id="buyModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">အသေးစိတ်အချက်လက်များ</h5>
+        <button type="button" class="btn-close" data-mdb-dismiss="modal"></button>
+      </div>
+      <div class="modal-body text-center">
+        <p>Plan: <span id="modalPlan"></span></p>
+        <p>Price: <span id="modalPrice"></span> Ks</p>
+        <p id="modalDescription"></p>
+        <div class="d-flex justify-content-center gap-3 mt-3">
+          <a href="https://t.me/iqowoq" target="_blank" class="btn btn-info">Telegram</a>
+          <a href="viber://chat?number=%2B959688171999" target="_blank" class="btn btn-purple">Viber</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.umd.min.js"></script>
 <script>
+  // ===== VIP Buy modal logic =====
+  const planDescriptions = {
+    "1month": "၁လ ဝယ်ယူသူဆိုရင် တင်ထားသမျှ Movie အစုံနဲ့ တိုက်ရိုက်ဘောပွဲများကို ရက် ၃၀ + အပို ၅ ရက် စုစုပေါင်း ၃၅ ရက်ကြည့်ခွင့် ရရှိမည်။",
+    "3month": "၃လ ဝယ်ယူသူဆိုရင် Movie အစုံနဲ့ တိုက်ရိုက်ဘောပွဲများကို ရက် ၉၀ + အပို ၂၀ ရက် စုစုပေါင်း ၁၁၀ ရက်ကြည့်ခွင့် ရရှိမည်။",
+    "5month": "၅လ ဝယ်ယူသူဆိုရင် Movie အစုံနဲ့ တိုက်ရိုက်ဘောပွဲများကို ရက် ၁၅၀ + အပို ၃၅ ရက် စုစုပေါင်း ၁၈၅ ရက်ကြည့်ခွင့် ရရှိမည်။",
+    "8month": "၈လ ဝယ်ယူသူဆိုရင် Movie အစုံနဲ့ တိုက်ရိုက်ဘောပွဲများကို ရက် ၂၄၀ + အပို ၅၅ ရက် စုစုပေါင်း ၂၉၅ ရက်ကြည့်ခွင့် ရရှိမည်။",
+    "1year": "၁နှစ် ဝယ်ယူသူဆိုရင် Movie အစုံနဲ့ တိုက်ရိုက်ဘောပွဲများကို ရက် ၃၆၅ + အပို ၈၀ ရက် စုစုပေါင်း ၄၄၅ ရက်ကြည့်ခွင့် ရရှိမည်။"
+  };
+
+  document.querySelectorAll('.buy-btn').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const plan = btn.getAttribute('data-duration');
+      const price = btn.getAttribute('data-price');
+      document.getElementById('modalPlan').innerText = plan;
+      document.getElementById('modalPrice').innerText = price;
+      document.getElementById('modalDescription').innerText = planDescriptions[plan] || '';
+      new mdb.Modal(document.getElementById('buyModal')).show();
+    });
+  });
+
+  // ===== Lucky Spin logic =====
   const canvas = document.getElementById("wheelCanvas");
   const ctx = canvas.getContext("2d");
   const spinBtn = document.getElementById("spinBtn");
@@ -165,7 +206,6 @@ version : 8.6 </pre>
 
   const maxWinnersPerDay = 5;
   let winnersCount = parseInt(localStorage.getItem("winnersCount") || "0");
-
   const todayVIPKey = "78YovI2uqRJ22TSy";
 
   const userId = (() => {
@@ -191,22 +231,25 @@ version : 8.6 </pre>
 
   const total = sectors.length;
   const arc = (2 * Math.PI) / total;
+  let currentAngle = 0;
 
   function drawWheel() {
+    ctx.clearRect(0,0,300,300);
     for (let i = 0; i < total; i++) {
-      const start = i * arc;
+      const start = i * arc + currentAngle;
       ctx.beginPath();
       ctx.fillStyle = sectors[i].color;
-      ctx.moveTo(140, 140);
-      ctx.arc(140, 140, 140, start, start + arc);
-      ctx.lineTo(140, 140);
+      ctx.moveTo(150, 150);
+      ctx.arc(150, 150, 150, start, start + arc);
+      ctx.lineTo(150, 150);
       ctx.fill();
+
       ctx.save();
-      ctx.translate(140, 140);
+      ctx.translate(150, 150);
       ctx.rotate(start + arc / 2);
       ctx.fillStyle = "white";
       ctx.font = "bold 14px sans-serif";
-      ctx.fillText(sectors[i].text, 40, 5);
+      ctx.fillText(sectors[i].text, 50, 5);
       ctx.restore();
     }
   }
@@ -223,37 +266,43 @@ version : 8.6 </pre>
       return;
     }
 
-    let spinAngle = Math.floor(Math.random() * 3600 + 1000);
-    let currentAngle = 0;
     spinBtn.disabled = true;
     spinResult.textContent = "🎡 Spinning...";
 
-    const spin = setInterval(() => {
-      currentAngle += 10;
-      if (currentAngle >= spinAngle) {
-        clearInterval(spin);
-        const finalAngle = (spinAngle % 360);
-        const index = Math.floor(total - (finalAngle / (360 / total))) % total;
+    let spinTarget = Math.floor(Math.random()*360 + 720); // rotate 2~3 turns minimum
+    let frames = 60;
+    let step = spinTarget / frames;
+    let count = 0;
+
+    const spinAnim = setInterval(() => {
+      currentAngle += step * Math.PI/180;
+      drawWheel();
+      count++;
+      if(count>=frames){
+        clearInterval(spinAnim);
+
+        const finalAngle = (currentAngle % (2*Math.PI));
+        const index = Math.floor(total - finalAngle/(2*Math.PI/total)) % total;
         const result = sectors[index].text;
 
         spinsUsed++;
         localStorage.setItem(spinsUsedKey, spinsUsed);
 
-        if (result === "VIP Key") {
+        if(result==="VIP Key"){
           winnersCount++;
           localStorage.setItem("winnersCount", winnersCount);
           spinResult.innerHTML = `🎉 You won! VIP Key: <code>${todayVIPKey}</code>`;
-        } else {
+        }else{
           spinResult.textContent = "😔 Try Again!";
         }
 
-        if (spinsUsed >= 3) {
+        if(spinsUsed>=3){
           spinResult.innerHTML += "<br>🚫 Your spins are finished for today.";
         }
 
         spinBtn.disabled = false;
       }
-    }, 10);
+    },30);
   }
 
   spinBtn.addEventListener("click", rotateWheel);
