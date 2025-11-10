@@ -85,18 +85,15 @@
       transform: translateY(0);
     }
 
-    /* Buy Modal Animation with backdrop blur */
+    /* Buy Modal Animation */
     .modal.fade .modal-dialog {
-      transform: translateY(50px) scale(0.9);
-      transition: all 0.35s ease-in-out;
+      transform: scale(0.8);
+      transition: all 0.3s ease-in-out;
       opacity: 0;
     }
     .modal.show .modal-dialog {
-      transform: translateY(0) scale(1);
+      transform: scale(1);
       opacity: 1;
-    }
-    .modal-backdrop.show {
-      backdrop-filter: blur(5px);
     }
 
     /* Footer */
@@ -131,7 +128,7 @@
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark">
   <div class="container">
-    <a class="navbar-brand me-2" href="#"><img width="40" height="40" src="https://i.ibb.co/tMbNvqR/1705467975388.jpg" alt="Logo"></a>
+    <a class="navbar-brand me-2" href="#"><img width="40" height="40" src="https://thumbsnap.com/i/1kDR6Auj.png?1110" alt="Logo"></a>
     <button data-mdb-collapse-init class="navbar-toggler" type="button" data-mdb-target="#navbarButtonsExample">
       <i class="fas fa-bars"></i>
     </button>
@@ -152,7 +149,7 @@
   <div class="container">
     <h1>LuGyi Application</h1>
     <h4>အခမဲ့ ဒေါင်းရန် Movie App</h4>
-    <img src="https://thumbsnap.com/i/1kDR6Auj.png?1110" alt="App Preview">
+    <img src="https://thumbsnap.com/i/GCB3vLoX.png?1110" alt="App Preview">
     <pre> file-size : 25 MB
 version : 8.6 </pre>
     <br>
@@ -222,12 +219,8 @@ version : 8.6 </pre>
 
     <div class="row mt-4 justify-content-center">
       <div class="col-md-8 text-center">
-        <a href="https://t.me/iqowoq" target="_blank" class="contact-icon">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" width="20" alt="Telegram"> Telegram
-        </a> /
-        <a href="viber://chat?number=%2B959688171999" target="_blank" class="contact-icon">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/7/7f/Viber_logo.svg" width="20" alt="Viber"> Viber
-        </a>
+        <a href="https://t.me/iqowoq" target="_blank" class="contact-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" width="20" alt="Telegram"> Telegram</a> /
+        <a href="viber://chat?number=%2B959688171999" target="_blank" class="contact-icon"><img src="https://thumbsnap.com/i/bFfYAGCv.png?1110" width="20" alt="Viber"> Viber</a>
       </div>
     </div>
   </div>
@@ -236,10 +229,10 @@ version : 8.6 </pre>
 <!-- Buy Modal -->
 <div class="modal fade" id="buyModal" tabindex="-1">
   <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content" style="background: rgba(30,30,30,0.95); color:#fff; border-radius:12px;">
-      <div class="modal-header border-0">
+    <div class="modal-content">
+      <div class="modal-header">
         <h5 class="modal-title">အသေးစိတ်အချက်လက်များ</h5>
-        <button type="button" class="btn-close btn-close-white" data-mdb-dismiss="modal"></button>
+        <button type="button" class="btn-close" data-mdb-dismiss="modal"></button>
       </div>
       <div class="modal-body text-center">
         <p>Plan: <span id="modalPlan"></span></p>
