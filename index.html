@@ -17,6 +17,7 @@
       padding:18px;
       transition: transform .18s ease, box-shadow .18s ease;
       background: linear-gradient(180deg, #ffffff 0%, #f7fbff 100%);
+      position: relative;
     }
     .vip-card:hover{
       transform: translateY(-6px);
@@ -25,9 +26,21 @@
     .price{ font-size:1.6rem; font-weight:700; }
     .duration{ font-size:1rem; color:#666; }
     .buy-btn{ border-radius:10px; }
+    .popular-badge {
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      background: #ff4081;
+      color: white;
+      font-size: 0.8rem;
+      padding: 4px 8px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
     @media(max-width:576px){ .vip-grid { gap:12px; } }
   </style>
 </head>
+
 <body>
 
 <!-- Navbar -->
@@ -59,12 +72,14 @@
         <h2 style="font-family: 'Black Ops One', system-ui;">LuGyi Application</h2>
         <h4 class="mainTitle">Download Page!</h4>
         <img class="mt-3 mb-3" width="20%" src="https://thumbsnap.com/i/1kDR6Auj.png?1110" alt="">
-        <pre> file-size : 25 MB version : 8.6 </pre>
+        <pre> file-size : 25 MB
+version : 8.6 </pre>
         <a class="btn btn-success container-fluid mb-3" href="https://www.mediafire.com/file/gk58s4lgld5v93i/Dark_Ness_8.6.apk/file" target="_blank">Download</a>
         <p>21+ စာတန်းထိုးဇာတ်ကားများအပါဝင် တိုက်ရိုက်ဘောပွဲများ စိတ်ကြိုက်ကြည့်ရှုဖို့ Download ခလုပ်ကို နှိပ်ပြီး LuGyi App ကို ရယူလိုက်ပါ</p>
       </div>
+
       <div class="col-sm-6 p-3 bg-white text-center">
-        <h2 class="text-center mb-4 fw-bold">Jav usa myanamr chineseကြိုက်သူများအတွက်</h2>
+        <h2 class="text-center mb-4 fw-bold">Jav usa myanamr chinese ကြိုက်သူများအတွက်</h2>
         <h4 class="text-center mb-3">အခမဲ့ ဒေါင်းရန် Movie App!</h4>
         <img width="100%" src="https://github.com/nyein-khant/error/blob/main/1707096193190.jpg?raw=true" alt="">
       </div>
@@ -78,31 +93,62 @@
     <div class="row justify-content-center mb-4">
       <div class="col-lg-8 text-center">
         <h2 style="font-family: 'Black Ops One', system-ui;">Buy VIP Key</h2>
-        <p class="text-muted">Vipတံဆိပ်ပါသော ဇာတ်ကားများအတွက် VIP key ဝယ်ယူနိုင်ပါတယ် — သင်ကြိုက်နှစ်သက်သော Planကို ရွေးချယ်ပြီး ဝယ်ယူရန် ဆက်သွယ်နိူင်ပါသည်။</p>
+        <p class="text-muted">
+          Vipတံဆိပ်ပါသော ဇာတ်ကားများအတွက် VIP key ဝယ်ယူနိုင်ပါတယ် — သင်ကြိုက်နှစ်သက်သော Plan ကို ရွေးချယ်ပြီး ဝယ်ယူရန် ဆက်သွယ်နိူင်ပါသည်။
+        </p>
       </div>
     </div>
 
     <div class="row vip-grid gx-3 gy-4 justify-content-center">
       <div class="col-6 col-sm-4 col-md-3">
-        <div class="vip-card text-center p-3"><div class="duration">1 month</div><div class="price">700 Ks</div><button class="btn btn-primary buy-btn w-100" data-duration="1month" data-price="700">Buy</button></div>
+        <div class="vip-card text-center p-3">
+          <div class="duration">1 month</div>
+          <div class="price">700 Ks</div>
+          <button class="btn btn-primary buy-btn w-100" data-duration="1month" data-price="700">Buy</button>
+        </div>
       </div>
+
       <div class="col-6 col-sm-4 col-md-3">
-        <div class="vip-card text-center p-3"><div class="duration">3 months</div><div class="price">1,500 Ks</div><button class="btn btn-primary buy-btn w-100" data-duration="3month" data-price="1500">Buy</button></div>
+        <div class="vip-card text-center p-3">
+          <div class="duration">3 months</div>
+          <div class="price">1,500 Ks</div>
+          <button class="btn btn-primary buy-btn w-100" data-duration="3month" data-price="1500">Buy</button>
+        </div>
       </div>
+
       <div class="col-6 col-sm-4 col-md-3">
-        <div class="vip-card text-center p-3"><div class="duration">5 months</div><div class="price">2,200 Ks</div><button class="btn btn-primary buy-btn w-100" data-duration="5month" data-price="2200">Buy</button></div>
+        <div class="vip-card text-center p-3">
+          <div class="duration">5 months</div>
+          <div class="price">2,200 Ks</div>
+          <button class="btn btn-primary buy-btn w-100" data-duration="5month" data-price="2200">Buy</button>
+        </div>
       </div>
+
       <div class="col-6 col-sm-4 col-md-3">
-        <div class="vip-card text-center p-3"><div class="duration">8 months</div><div class="price">3,700 Ks</div><button class="btn btn-primary buy-btn w-100" data-duration="8month" data-price="3700">Buy</button></div>
+        <div class="vip-card text-center p-3">
+          <div class="duration">8 months</div>
+          <div class="price">3,700 Ks</div>
+          <button class="btn btn-primary buy-btn w-100" data-duration="8month" data-price="3700">Buy</button>
+        </div>
       </div>
+
       <div class="col-6 col-sm-4 col-md-3">
-        <div class="vip-card text-center p-3"><div class="duration">1 year</div><div class="price">5,000 Ks</div><button class="btn btn-primary buy-btn w-100" data-duration="1year" data-price="5000">Buy</button></div>
+        <div class="vip-card text-center p-3 border border-2 border-primary">
+          <span class="popular-badge">လူကြိုက်အများဆုံး ⭐</span>
+          <div class="duration fw-bold">1 year</div>
+          <div class="price text-primary">5,000 Ks</div>
+          <button class="btn btn-primary buy-btn w-100" data-duration="1year" data-price="5000">Buy</button>
+        </div>
       </div>
     </div>
 
     <div class="row mt-4 justify-content-center">
       <div class="col-md-8 text-center text-muted">
-        <small>ဆက်သွယ်ရန်: <a href="https://t.me/iqowoq" target="_blank">Telegram</a> / <a href="viber://chat?number=%2B959xxxxxxxx" target="_blank">Viber</a></small>
+        <small>
+          ဆက်သွယ်ရန်:
+          <a href="https://t.me/iqowoq" target="_blank">Telegram</a> /
+          <a href="viber://chat?number=%2B959688171999" target="_blank">Viber</a>
+        </small>
       </div>
     </div>
   </div>
@@ -122,7 +168,7 @@
         <p id="modalDescription"></p>
         <div class="d-flex justify-content-center gap-3 mt-3">
           <a href="https://t.me/iqowoq" target="_blank" class="btn btn-info">Telegram</a>
-          <a href="viber://chat?number=%2B959xxxxxxxx" target="_blank" class="btn btn-purple">Viber</a>
+          <a href="viber://chat?number=%2B959688171999" target="_blank" class="btn btn-purple">Viber</a>
         </div>
       </div>
     </div>
@@ -132,11 +178,11 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.umd.min.js"></script>
 <script>
   const planDescriptions = {
-    "1month": "၁လ ဝယ်ယူသူဆိုရင် တင်ထားသမျှ Movie အစုံနဲ့ တိုက်ရိုက်ဘောပွဲများကြည့်ခွင့်ကို ရက် ၃၀ အသုံးပြုနိုင်ပါသည်။",
-    "3month": "၃လ ဝယ်ယူသူဆိုရင် တင်ထားသမျှ Movie အစုံနဲ့ တိုက်ရိုက်ဘောပွဲများကြည့်ခွင့်ကို ရက် ၉၀ အသုံးပြုနိုင်ပါသည်။",
-    "5month": "၅လ ဝယ်ယူသူဆိုရင် တင်ထားသမျှ Movie အစုံနဲ့ တိုက်ရိုက်ဘောပွဲများကြည့်ခွင့်ကို ရက် ၁၅၀ အသုံးပြုနိုင်ပါသည်။",
-    "8month": "၈လ ဝယ်ယူသူဆိုရင် တင်ထားသမျှ Movie အစုံနဲ့ တိုက်ရိုက်ဘောပွဲများကြည့်ခွင့်ကို ရက် ၂၄၀ အသုံးပြုနိုင်ပါသည်။",
-    "1year": "၁နှစ် ဝယ်ယူသူဆိုရင် တင်ထားသမျှ Movie အစုံနဲ့ တိုက်ရိုက်ဘောပွဲများကြည့်ခွင့်ကို ရက် ၃၆၅ အသုံးပြုနိုင်ပါသည်။"
+    "1month": "၁လ ဝယ်ယူသူဆိုရင် တင်ထားသမျှ Movie အစုံနဲ့ တိုက်ရိုက်ဘောပွဲများကို ရက် ၃၀ + အပို ၅ ရက် စုစုပေါင်း ၃၅ ရက်ကြည့်ခွင့် ရရှိမည်။",
+    "3month": "၃လ ဝယ်ယူသူဆိုရင် Movie အစုံနဲ့ တိုက်ရိုက်ဘောပွဲများကို ရက် ၉၀ + အပို ၂၀ ရက် စုစုပေါင်း ၁၁၀ ရက်ကြည့်ခွင့် ရရှိမည်။",
+    "5month": "၅လ ဝယ်ယူသူဆိုရင် Movie အစုံနဲ့ တိုက်ရိုက်ဘောပွဲများကို ရက် ၁၅၀ + အပို ၃၅ ရက် စုစုပေါင်း ၁၈၅ ရက်ကြည့်ခွင့် ရရှိမည်။",
+    "8month": "၈လ ဝယ်ယူသူဆိုရင် Movie အစုံနဲ့ တိုက်ရိုက်ဘောပွဲများကို ရက် ၂၄၀ + အပို ၅၅ ရက် စုစုပေါင်း ၂၉၅ ရက်ကြည့်ခွင့် ရရှိမည်။",
+    "1year": "၁နှစ် ဝယ်ယူသူဆိုရင် Movie အစုံနဲ့ တိုက်ရိုက်ဘောပွဲများကို ရက် ၃၆၅ + အပို ၈၀ ရက် စုစုပေါင်း ၄၄၅ ရက်ကြည့်ခွင့် ရရှိမည်။"
   };
 
   document.querySelectorAll('.buy-btn').forEach(btn=>{
@@ -150,5 +196,6 @@
     });
   });
 </script>
+
 </body>
 </html>
