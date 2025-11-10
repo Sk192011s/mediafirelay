@@ -72,6 +72,18 @@
       box-shadow: 0 2px 6px rgba(0,0,0,0.4);
     }
 
+    /* VIP Description */
+    #vip .text-muted {
+      color: #fff !important;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease;
+    }
+    #vip.visible .text-muted {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
     /* Footer */
     footer { text-align:center; padding:20px 0; background:#1b1b1b; color:#fff; font-size:0.9rem; }
 
@@ -182,8 +194,8 @@ version : 8.6 </pre>
     </div>
 
     <div class="row mt-4 justify-content-center">
-      <div class="col-md-8 text-center text-muted">
-        <small>
+      <div class="col-md-8 text-center">
+        <small style="color:#fff;">
           ဆက်သွယ်ရန်:
           <a href="https://t.me/iqowoq" target="_blank">Telegram</a> /
           <a href="viber://chat?number=%2B959688171999" target="_blank">Viber</a>
@@ -238,6 +250,15 @@ version : 8.6 </pre>
       document.getElementById('modalDescription').innerText = planDescriptions[plan] || '';
       new mdb.Modal(document.getElementById('buyModal')).show();
     });
+  });
+
+  // VIP fade-in animation
+  const vipSection = document.getElementById('vip');
+  window.addEventListener('scroll', () => {
+    const rect = vipSection.getBoundingClientRect();
+    if(rect.top < window.innerHeight - 100){
+      vipSection.classList.add('visible');
+    }
   });
 </script>
 
