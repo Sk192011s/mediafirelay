@@ -11,6 +11,21 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.min.css" rel="stylesheet">
 
   <style>
+    body { font-family: 'Arial', sans-serif; background: #f2f5f7; margin:0; padding:0; }
+    .navbar { box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+
+    /* Hero Section */
+    .hero { background: linear-gradient(135deg, #6b73ff 0%, #000dff 100%); color: white; padding: 60px 15px; text-align:center; }
+    .hero h1 { font-family: 'Black Ops One', cursive; font-size:2.8rem; margin-bottom: 10px; }
+    .hero h4 { font-size:1.4rem; margin-bottom:20px; }
+    .hero img { margin: 20px 0; border-radius: 12px; box-shadow: 0 6px 18px rgba(0,0,0,0.2); max-width:200px; width:50%; }
+    .hero pre { color: #fff; background: rgba(0,0,0,0.2); padding: 10px; border-radius: 8px; display:inline-block; }
+    .hero .btn-download { font-size:1.2rem; font-weight:bold; border-radius:12px; padding:12px 20px; margin-top:15px; }
+
+    /* Promo Image Section */
+    .promo img { width:100%; max-width:600px; border-radius:12px; box-shadow:0 6px 18px rgba(0,0,0,0.1); }
+
+    /* VIP Cards */
     .vip-card{
       border-radius:12px;
       box-shadow:0 6px 18px rgba(0,0,0,0.08);
@@ -23,9 +38,9 @@
       transform: translateY(-6px);
       box-shadow:0 12px 28px rgba(0,0,0,0.12);
     }
-    .price{ font-size:1.6rem; font-weight:700; }
+    .price{ font-size:1.6rem; font-weight:700; margin-top:5px; }
     .duration{ font-size:1rem; color:#666; }
-    .buy-btn{ border-radius:10px; }
+    .buy-btn{ border-radius:10px; margin-top:10px; }
     .popular-badge {
       position: absolute;
       top: -10px;
@@ -37,16 +52,25 @@
       border-radius: 10px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.15);
     }
-    @media(max-width:576px){ .vip-grid { gap:12px; } }
+
+    /* Mobile Adjustments */
+    @media(max-width:576px){
+      .hero h1 { font-size:2rem; }
+      .hero h4 { font-size:1.2rem; }
+      .hero img { width:60%; }
+      .vip-grid .col-6 { flex:0 0 100%; max-width:100%; }
+      .vip-card { padding:15px; }
+      .btn-download { width:100%; font-size:1rem; padding:10px; }
+    }
   </style>
 </head>
 
 <body>
 
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary">
+<nav class="navbar navbar-expand-lg navbar-light bg-white">
   <div class="container">
-    <a class="navbar-brand me-2" href="#"><img width="30" height="30" src="https://i.ibb.co/tMbNvqR/1705467975388.jpg" alt="Logo"></a>
+    <a class="navbar-brand me-2" href="#"><img width="40" height="40" src="https://i.ibb.co/tMbNvqR/1705467975388.jpg" alt="Logo"></a>
     <button data-mdb-collapse-init class="navbar-toggler" type="button" data-mdb-target="#navbarButtonsExample">
       <i class="fas fa-bars"></i>
     </button>
@@ -54,90 +78,83 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item"><h5 class="px-3">LuGyi Application</h5></li>
       </ul>
-      <div class="d-flex align-items-center">
-        <div class="d-flex justify-content-center gap-3">
-          <a target="_blank" href="https://www.facebook.com/share/16aCfZocrm/"><i class="fab fa-facebook fa-2x"></i></a>
-          <a target="_blank" href="https://t.me/iqowoq"><i class="fab fa-telegram fa-2x"></i></a>
-        </div>
+      <div class="d-flex align-items-center gap-3">
+        <a target="_blank" href="https://www.facebook.com/share/16aCfZocrm/"><i class="fab fa-facebook fa-2x text-primary"></i></a>
+        <a target="_blank" href="https://t.me/iqowoq"><i class="fab fa-telegram fa-2x text-info"></i></a>
       </div>
     </div>
   </div>
 </nav>
 
-<!-- Download Section -->
-<section id="home" class="py-4">
+<!-- Hero / Download Section -->
+<section class="hero">
   <div class="container">
-    <div class="row d-flex justify-content-center mt-5">
-      <div class="col-sm-5 p-3 bg-white text-center">
-        <h2 style="font-family: 'Black Ops One', system-ui;">LuGyi Application</h2>
-        <h4 class="mainTitle"></h4>
-        <img class="mt-3 mb-3" width="20%" src="https://thumbsnap.com/i/1kDR6Auj.png?1110" alt="">
-        <pre> file-size : 25 MB
+    <h1>LuGyi Application</h1>
+    <h4>အခမဲ့ ဒေါင်းရန် Movie App</h4>
+    <img src="https://thumbsnap.com/i/1kDR6Auj.png?1110" alt="App Preview">
+    <pre> file-size : 25 MB
 version : 8.6 </pre>
-        <a class="btn btn-success container-fluid mb-3" href="https://www.mediafire.com/file/gk58s4lgld5v93i/Dark_Ness_8.6.apk/file" target="_blank">Download Now</a>
-        <p>21+ စာတန်းထိုးဇာတ်ကားများအပါဝင် တိုက်ရိုက်ဘောပွဲများ စိတ်ကြိုက်ကြည့်ရှုဖို့ Download ခလုပ်ကို နှိပ်ပြီး LuGyi App ကို ရယူလိုက်ပါ</p>
-      </div>
+    <br>
+    <a class="btn btn-success btn-download" href="https://www.mediafire.com/file/gk58s4lgld5v93i/Dark_Ness_8.6.apk/file" target="_blank">Download Now</a>
+    <p class="mt-3" style="max-width:600px;margin:auto;">21+ စာတန်းထိုးဇာတ်ကားများအပါဝင် တိုက်ရိုက်ဘောပွဲများ စိတ်ကြိုက်ကြည့်ရှုဖို့ Download ခလုပ်ကို နှိပ်ပြီး LuGyi App ကို ရယူလိုက်ပါ</p>
+  </div>
+</section>
 
-      <div class="col-sm-6 p-3 bg-white text-center">
-        <h2 class="text-center mb-4 fw-bold"></h2>
-        <h4 class="text-center mb-3">အခမဲ့ ဒေါင်းရန် Movie App!</h4>
-        <img width="100%" src="https://github.com/nyein-khant/error/blob/main/1707096193190.jpg?raw=true" alt="">
-      </div>
-    </div>
+<!-- Promo Image Section -->
+<section class="promo py-5 text-center">
+  <div class="container">
+    <img src="https://github.com/nyein-khant/error/blob/main/1707096193190.jpg?raw=true" alt="Movie Preview">
   </div>
 </section>
 
 <!-- VIP Section -->
 <section id="vip" class="py-5 bg-light">
   <div class="container">
-    <div class="row justify-content-center mb-4">
-      <div class="col-lg-8 text-center">
-        <h2 style="font-family: 'Black Ops One', system-ui;">Buy VIP Key</h2>
-        <p class="text-muted">
-          Vipတံဆိပ်ပါသော ဇာတ်ကားများအတွက် VIP key ဝယ်ယူနိုင်ပါတယ် — သင်ကြိုက်နှစ်သက်သော Plan ကို ရွေးချယ်ပြီး ဝယ်ယူရန် ဆက်သွယ်နိူင်ပါသည်။
-        </p>
-      </div>
+    <div class="text-center mb-5">
+      <h2 style="font-family: 'Black Ops One', system-ui;">Buy VIP Key</h2>
+      <p class="text-muted">Vipတံဆိပ်ပါသော ဇာတ်ကားများအတွက် VIP key ဝယ်ယူနိုင်ပါတယ် — သင်ကြိုက်နှစ်သက်သော Plan ကို ရွေးချယ်ပြီး ဝယ်ယူရန် ဆက်သွယ်နိူင်ပါသည်။</p>
     </div>
 
     <div class="row vip-grid gx-3 gy-4 justify-content-center">
+      <!-- VIP cards -->
       <div class="col-6 col-sm-4 col-md-3">
-        <div class="vip-card text-center p-3">
-          <div class="duration">၁ လ</div>
-          <div class="price">၇၀၀ ကျပ်</div>
-          <button class="btn btn-primary buy-btn w-100" data-duration="1month" data-price="700">ဝယ်ယူရန်</button>
+        <div class="vip-card text-center">
+          <div class="duration">1 month</div>
+          <div class="price">700 Ks</div>
+          <button class="btn btn-primary buy-btn w-100" data-duration="1month" data-price="700">Buy</button>
         </div>
       </div>
 
       <div class="col-6 col-sm-4 col-md-3">
-        <div class="vip-card text-center p-3">
-          <div class="duration">၃ လ</div>
-          <div class="price">၁,၅၀၀ ကျပ်</div>
-          <button class="btn btn-primary buy-btn w-100" data-duration="3month" data-price="1500">ဝယ်ယူရန်</button>
+        <div class="vip-card text-center">
+          <div class="duration">3 months</div>
+          <div class="price">1,500 Ks</div>
+          <button class="btn btn-primary buy-btn w-100" data-duration="3month" data-price="1500">Buy</button>
         </div>
       </div>
 
       <div class="col-6 col-sm-4 col-md-3">
-        <div class="vip-card text-center p-3">
-          <div class="duration">၅ လ</div>
-          <div class="price">၂,၂၀၀ ကျပ်</div>
-          <button class="btn btn-primary buy-btn w-100" data-duration="5month" data-price="2200">ဝယ်ယူရန်</button>
+        <div class="vip-card text-center">
+          <div class="duration">5 months</div>
+          <div class="price">2,200 Ks</div>
+          <button class="btn btn-primary buy-btn w-100" data-duration="5month" data-price="2200">Buy</button>
         </div>
       </div>
 
       <div class="col-6 col-sm-4 col-md-3">
-        <div class="vip-card text-center p-3">
-          <div class="duration">၈ လ</div>
-          <div class="price">၃,၇၀၀ ကျပ်</div>
-          <button class="btn btn-primary buy-btn w-100" data-duration="8month" data-price="3700">ဝယ်ယူရန်</button>
+        <div class="vip-card text-center">
+          <div class="duration">8 months</div>
+          <div class="price">3,700 Ks</div>
+          <button class="btn btn-primary buy-btn w-100" data-duration="8month" data-price="3700">Buy</button>
         </div>
       </div>
 
       <div class="col-6 col-sm-4 col-md-3">
-        <div class="vip-card text-center p-3 border border-2 border-primary">
+        <div class="vip-card text-center border border-2 border-primary">
           <span class="popular-badge">လူကြိုက်အများဆုံး ⭐</span>
-          <div class="duration fw-bold">၁ နှစ်</div>
-          <div class="price text-primary">၅,၀၀၀ ကျပ်</div>
-          <button class="btn btn-primary buy-btn w-100" data-duration="1year" data-price="5000">ဝယ်ယူရန်</button>
+          <div class="duration fw-bold">1 year</div>
+          <div class="price text-primary">5,000 Ks</div>
+          <button class="btn btn-primary buy-btn w-100" data-duration="1year" data-price="5000">Buy</button>
         </div>
       </div>
     </div>
@@ -147,7 +164,7 @@ version : 8.6 </pre>
         <small>
           ဆက်သွယ်ရန်:
           <a href="https://t.me/iqowoq" target="_blank">Telegram</a> /
-          <a href="viber://chat?number=%2B09688171999" target="_blank">Viber</a>
+          <a href="viber://chat?number=%2B959688171999" target="_blank">Viber</a>
         </small>
       </div>
     </div>
@@ -168,7 +185,7 @@ version : 8.6 </pre>
         <p id="modalDescription"></p>
         <div class="d-flex justify-content-center gap-3 mt-3">
           <a href="https://t.me/iqowoq" target="_blank" class="btn btn-info">Telegram</a>
-          <a href="viber://chat?number=%2B09688171999" target="_blank" class="btn btn-purple">Viber</a>
+          <a href="viber://chat?number=%2B959688171999" target="_blank" class="btn btn-purple">Viber</a>
         </div>
       </div>
     </div>
